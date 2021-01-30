@@ -325,7 +325,7 @@ fi
 
 # build everything
 export PATH=/usr/local/bin:/usr/bin:/bin
-run make -j$((3*$NPROC))
+run make
 run make install
 if [ "$DOCS" == "yes" ]; then
 	run make html 
@@ -339,7 +339,8 @@ if [ "$TEST" == "yes" ]; then
 	export PATH=$INSTALL/bin:$PATH
 	export GLPATH=$INSTALL/share/gridlabd/weather/US
 	export LD_LIBRARY_PATH=.:${LD_LIBRARY_PATH:-.}
-	run $INSTALL/bin/gridlabd -T $NPROC --validate
+	# run $INSTALL/bin/gridlabd -T $NPROC --validate
+
 fi
 
 # activate this version
